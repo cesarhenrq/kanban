@@ -1,12 +1,14 @@
-import { Container, Title, Card, Text, Button, EditButton, Icon, ButtonContainer, Message, ContainerTextButton } from '../../assets/styles'
+import { Container, Title, Card, Text, Button, EditButton, Icon, ButtonContainer, Message, ContainerTextButton } from '../../assets/styles';
 
 const ToDo = ({tasks, deleteTask, changeStatus, setIsEditMode, setUpdatedTask}: Props) => {
-  tasks = tasks.filter(task => task.status === 'todo')
+  tasks = tasks.filter(task => task.status === 'todo') 
+
+  
   return (
     <Container>
       <Title>To Do</Title>
-      {tasks.length ? tasks.map((task,index) => (
-        <Card key={index}>
+      {tasks.length ? tasks.map((task) => (
+        <Card key={`${task.id}`}>
           <ContainerTextButton>
             <Text 
               fontSize="20px" 
