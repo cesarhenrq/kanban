@@ -1,10 +1,10 @@
 import { InputContainer, Label, StyledTextArea, StyledInput } from './styles'
 
-import {ChangeEvent, Dispatch, SetStateAction} from 'react'
+import {ChangeEvent} from 'react'
 
 type Props = {
   value: string;
-  setValue: Dispatch<SetStateAction<string>>;
+  setValue: (value: string) => void;
   tag?: 'input' | 'textarea';
   label: string;
 };

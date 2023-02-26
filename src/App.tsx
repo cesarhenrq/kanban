@@ -10,6 +10,8 @@ import Done from './components/done';
 
 export default function App() {
   const [tasks, setTasks] = useState<Array<Task>>([]);
+  const [updatedTask, setUpdatedTask] = useState<Task>({});
+  const [isEditMode, setIsEditMode] = useState<boolean>(false);
 
   const deleteTask = (id: number) => {
     setTasks(tasks.filter(task => task.id !== id))
@@ -23,10 +25,10 @@ export default function App() {
   return (
     <AppContainer>
      <GlobalStyle/>
-     <NewTask tasks={tasks} setTasks={setTasks}/>
-     <ToDo tasks={tasks} deleteTask={deleteTask} changeStatus={changeStatus}/>
-     <Doing tasks={tasks} deleteTask={deleteTask} changeStatus={changeStatus}/>
-     <Done tasks={tasks} deleteTask={deleteTask} changeStatus={changeStatus}/>
+     <NewTask {...{tasks, setTasks, isEditMode, setIsEditMode, updatedTask, setUpdatedTask }}/>
+     <ToDo {...{tasks, deleteTask, changeStatus, isEditMode, setIsEditMode, setUpdatedTask }}/>
+     <Doing {...{tasks, deleteTask, changeStatus, isEditMode, setIsEditMode, setUpdatedTask }}/>
+     <Done {...{tasks, deleteTask, changeStatus, isEditMode, setIsEditMode, setUpdatedTask }}/>
     </AppContainer>
   );
 };

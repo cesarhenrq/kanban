@@ -5,6 +5,10 @@ type TextProps = {
   isBold?: boolean;
 };
 
+type IconProps = {
+  color?: string;
+}
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -65,3 +69,21 @@ export const Message = styled.div`
   color: #333;
 `;
 
+export const EditButton = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  `;
+
+export const Icon = styled.i<IconProps>`
+  color: ${props => props.color ? props.color : 'inherit'};
+`;
+
+ export const ContainerTextButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
