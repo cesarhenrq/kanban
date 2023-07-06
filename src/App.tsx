@@ -10,7 +10,7 @@ import Done from './components/done';
 
 export default function App() {
   const [tasks, setTasks] = useState<Array<Task>>([]);
-  const [updatedTask, setUpdatedTask] = useState<Task>({} as Task | (() => Task));
+  const [updatedTask, setUpdatedTask] = useState<Task>({} as unknown as Task | (() => Task));
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
 
   const deleteTask = (id: number) => {
